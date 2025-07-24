@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #87ceeb, #1e90ff);
+}
+
+#gameArea {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Shooter */
+#shooter {
+  position: absolute;
+  bottom: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 25px;
+  background-color: red;
+  border-radius: 5px;
+}
+
+/* Bubble */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Bullet */
+.bullet {
+  position: absolute;
+  width: 15px;
+  height: 35px;
+  background-color: yellow;
+  border-radius: 5px;
+}
+
+/* Score */
+#scoreBoard {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 2.5vh;
+  color: #ffffff;
+}
+
+/* Game Over Message */
+#gameOver {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 6vw;
+  color: red;
+  font-weight: bold;
+  display: none;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+
+/* Hide controls by default */
+#controls {
+  display: none;
+}
+
+/* Show controls only on mobile */
+@media (max-width: 600px) {
+  #controls {
+    display: flex;
+    position: fixed;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    gap: 20px;
+    z-index: 1000;
+  }
+
+  #controls button {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    user-select: none;
+    touch-action: manipulation;
+  }
+
+  #controls button:active {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+
+/* Responsive styles for small screens */
+@media (max-width: 600px) {
+  #shooter {
+    width: 80px;
+    height: 12px;
+  }
+
+  .bullet {
+    width: 8px;
+    height: 16px;
+  }
+
+  /* Bubbles will keep their dynamic size but max 50px fallback */
+  .bubble {
+    width: 25px !important;
+    height: 25px !important;
+  }
+
+  #scoreBoard {
+    font-size: 2vh;
+  }
+
+  #gameOver {
+    font-size: 8vw;
+    padding: 10px;
+    text-align: center;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  #controls {
+    gap: 10px;
+  }
+
+  #controls button {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+}
